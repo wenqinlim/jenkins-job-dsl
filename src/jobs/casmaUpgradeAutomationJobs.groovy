@@ -27,6 +27,9 @@ job("$basePath/run-automation-job") {
         stringParam('bmc_password', 'password')
 
     }
+
+    customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
+
     steps {
         shell readFileFromWorkspace('src/scripts/runTest.sh')
     }
