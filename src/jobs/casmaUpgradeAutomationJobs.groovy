@@ -6,10 +6,8 @@ folder(basePath) {
 
 [
     [uPath: 'direct'], 
-    [uPath: 'incremental']
+    [uPath: 'incremental'],
 ].each { Map config ->
-
-    echo ${config.uPath}
 
     job("$basePath/upgrade-${config.uPath}") {
 
