@@ -9,12 +9,12 @@ folder(basePath) {
     [uPath: 'incremental'],
 ].each { Map config ->
 
-    job("$basePath/upgrade_${config.uPath}") {
+    job("$basePath/upgrade-${config.uPath}") {
 
         description "${config.uPath} upgrade job"
 
         parameters {
-            readFileFromWorkspace('src/scripts/uParameters_${config.uPath}')
+            readFileFromWorkspace('src/scripts/uParameters}')
         }
 
         customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
