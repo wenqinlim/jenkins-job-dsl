@@ -32,7 +32,6 @@ job("$basePath/run-automation-job") {
     }
 
     publishers {
-        #groovyPostBuild readFileFromWorkspace('src/scripts/postProcess.groovy')
         junit {
             pattern('project-${DEPLOY_CONFIG}/tests/Reports/*.xml')
         }
