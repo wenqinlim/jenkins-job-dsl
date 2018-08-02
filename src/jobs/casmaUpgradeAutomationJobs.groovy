@@ -32,8 +32,9 @@ job("$basePath/run-automation-job") {
     }
 
     publishers {
-        jUnit {
-            pattern('project-${DEPLOY_CONFIG}/tests/Reports/*.xml')
+        archiveJunit('project-${DEPLOY_CONFIG}/tests/Reports/*.xml') {
+           retainLongStdOut()
+           healthScaleFactor(1.0)
         }
     }
 }
