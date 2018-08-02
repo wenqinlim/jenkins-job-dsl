@@ -32,7 +32,7 @@ job("$basePath/run-automation-job") {
     }
 
     publishers {
-        junit {
+        jUnit {
             pattern('project-${DEPLOY_CONFIG}/tests/Reports/*.xml')
         }
     }
