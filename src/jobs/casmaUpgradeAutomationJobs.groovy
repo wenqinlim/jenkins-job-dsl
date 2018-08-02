@@ -33,7 +33,7 @@ job("$basePath/run-automation-job") {
 
     publishers {
         archiveJunit('project-${DEPLOY_CONFIG}/tests/Reports/*.xml') {
-           retainLongStdOut()
+           retainLongStdout()
            healthScaleFactor(1.0)
         }
     }
