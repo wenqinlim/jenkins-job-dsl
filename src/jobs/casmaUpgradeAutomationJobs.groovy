@@ -9,7 +9,7 @@ job("$basePath/run-automation-job") {
     parameters {
         stringParam('RELEASE_VERSION', '2.3.5.1', 'Build version under test')
         stringParam('UPGRADE_PATH', '1.3.7.1::2.1.1.1')
-        stringParam('DEPLOY_CONFIG, 'kl.cas-s400-a4-03')
+        stringParam('DEPLOY_CONFIG', 'kl.cas-s400-a4-03')
         stringParam('TESTS_HOST_IP', '10.199.110.73')
         stringParam('TESTS_MAG2_TESTMODE', 'casma')
         stringParam('TESTS_HOST_TYPE', 's400')
