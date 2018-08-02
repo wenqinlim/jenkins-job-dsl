@@ -21,7 +21,7 @@ job("$basePath/run-automation-job") {
         stringParam('serial_port', '9')
         stringParam('serial_ssh_base_port', '5100')
         stringParam('serial_user', 'administrator')
-        stringparam('serial_password', 'password')
+        stringParam('serial_password', 'password')
         stringParam('bmc_ip', '10.199.112.73')
         stringParam('bmc_user', 'admin')
         stringParam('bmc_password', 'password')
