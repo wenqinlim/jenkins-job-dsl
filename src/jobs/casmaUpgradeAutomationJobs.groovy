@@ -14,7 +14,7 @@ folder(basePath) {
         description "${config.uPath} upgrade job"
 
         parameters {
-            readFileFromWorkspace('src/scripts/uParameters_${config.uPath}')
+            readFileFromWorkspace('src/scripts/uParameters_${config.uPath}.txt')
         }
 
         customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
