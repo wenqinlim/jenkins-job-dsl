@@ -15,7 +15,7 @@ folder(basePath) {
 
         parameters {
             stringParam('DEPLOY_CONFIG', "${config.DEPLOY_CONFIG}")
-            stringParam('RELEASE_VERSION')
+            stringParam('RELEASE_VERSION', ${config.RELEASE_VERSION})
         }
 
         customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
