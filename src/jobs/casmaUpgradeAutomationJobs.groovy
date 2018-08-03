@@ -5,17 +5,13 @@ folder(basePath) {
 }
 
 [
-    [uPath: 'direct'], 
-    [uPath: 'incremental'],
+    [uPath: 'direct', DEPLOY_CONFIG: 'kl.cas-s500-a1-01'], 
+    [uPath: 'incremental', DEPLOY_CONFIG: 'kl.cas-s400-a4-03' ],
 ].each { Map config ->
 
     job("$basePath/upgrade-${config.uPath}") {
 
         description "${config.uPath} upgrade job"
-
-        parameters {
-            stringParam(readFileFromWorkspace('src/scripts/uParameters.groovy'))
-        }
 
         customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
 
@@ -24,7 +20,7 @@ folder(basePath) {
         }
 
         publishers {
-            archiveJunit('project-${DEPLOY_CONFIG}/tests/Reports/*.xml') {
+            archiveJunit("project-${config.DEPLOY_CONFIG}/tests/Reports/*.xml") {
                retainLongStdout()
                healthScaleFactor(1.0)
             }
