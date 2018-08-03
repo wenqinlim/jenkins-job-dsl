@@ -5,8 +5,10 @@ folder(basePath) {
 }
 
 [
-    [uPath: 'direct', DEPLOY_CONFIG: 'kl.cas-s500-a1-01'], 
-    [uPath: 'incremental', DEPLOY_CONFIG: 'kl.cas-s400-a4-03' ],
+    [uPath: 'direct', DEPLOY_CONFIG: 'kl.cas-s500-a1-01', 
+     UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:'], 
+    [uPath: 'incremental', DEPLOY_CONFIG: 'kl.cas-s400-a4-03', 
+     UPGRADE_PATH: '1.3.7.1::2.1.1.1::2.2.1.1:2.3.1.1::2.3.1.2::latest:'],
 ].each { Map config ->
 
     job("$basePath/upgrade-${config.uPath}") {
@@ -15,7 +17,8 @@ folder(basePath) {
 
         parameters {
             stringParam('DEPLOY_CONFIG', "${config.DEPLOY_CONFIG}")
-            stringParam('RELEASE_VERSION')
+            stringParam('RELEASE_VERSION', "2.3.5.1")
+            stringParam('UPGRADE_PATH', "${config.UPGRADE_PATH}")
         }
 
         customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
