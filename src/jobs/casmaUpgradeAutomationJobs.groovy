@@ -24,7 +24,7 @@ folder(basePath) {
         }
 
         triggers {
-            cron('H/2 * * * *')
+            cron('H H(1-3) * * *')
         }
 
         customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
