@@ -9,6 +9,8 @@ folder(basePath) {
      UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:'], 
     [uPath: 'incremental', DEPLOY_CONFIG: 'kl.cas-s400-a4-03', 
      UPGRADE_PATH: '1.3.7.1::2.1.1.1::2.2.1.1:2.3.1.1::2.3.1.2::latest:'],
+    [uPath: '1.3.7.x-2.1.1-2.3.5', DEPLOY_CONFIG: 'kl.cas-s400-a1-10', 
+     UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:']
 ].each { Map config ->
 
     job("$basePath/upgrade-${config.uPath}") {
