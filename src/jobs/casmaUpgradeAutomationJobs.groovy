@@ -4,7 +4,7 @@ folder(basePath) {
     description 'This example shows how to include script resources from the workspace for CASMA upgrade automation.'
 }
 
-[
+c[
     [uPath: 'direct', DEPLOY_CONFIG: 'kl.cas-s500-a1-01'], 
     [uPath: 'incremental', DEPLOY_CONFIG: 'kl.cas-s400-a4-03' ],
 ].each { Map config ->
@@ -14,7 +14,7 @@ folder(basePath) {
         description "${config.uPath} upgrade job"
 
         parameters {
-            stringParam('DEPLOY_CONFIG', ${config.DEPLOY_CONFIG})
+            stringParam('DEPLOY_CONFIG', "${config.DEPLOY_CONFIG}")
             stringParam('RELEASE_VERSION')
         }
 
