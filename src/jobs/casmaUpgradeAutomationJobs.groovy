@@ -13,6 +13,11 @@ folder(basePath) {
 
         description "${config.uPath} upgrade job"
 
+        parameters {
+            stringParam('DEPLOY_CONFIG', ${config.DEPLOY_CONFIG})
+            stringParam('RELEASE_VERSION')
+        }
+
         customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
 
         steps {
@@ -27,4 +32,3 @@ folder(basePath) {
         }
     }
 }
-
