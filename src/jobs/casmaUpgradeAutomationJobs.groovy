@@ -23,6 +23,10 @@ folder(basePath) {
             stringParam('UPGRADE_PATH', "${config.UPGRADE_PATH}")
         }
 
+        triggers {
+            cron('H/2 * * * *')
+        }
+
         customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
 
         steps {
