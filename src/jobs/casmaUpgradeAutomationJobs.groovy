@@ -1,4 +1,4 @@
-String basePath = 'upgradeAutomation'
+String basePath = 'upgradeAutomation-2.4'
 
 folder(basePath) {
     description 'This example shows how to include script resources from the workspace for CASMA upgrade automation.'
@@ -6,11 +6,11 @@ folder(basePath) {
 
 [
     [uPath: 'direct', DEPLOY_CONFIG: 'kl.cas-s500-a1-01', 
-     UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:casma_2_3_debug_bcsi'], 
+     UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:casma_main_debug_bcsi'], 
     [uPath: 'incremental', DEPLOY_CONFIG: 'kl.cas-s400-a4-03', 
-     UPGRADE_PATH: '1.3.7.1::2.1.1.1::2.2.1.1:2.3.1.1::2.3.1.2::latest:casma_2_3_debug_bcsi'],
-    [uPath: '1.3.7.x-2.1.1-2.3.5', DEPLOY_CONFIG: 'kl.cas-s400-a1-10', 
-     UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:casma_2_3_debug_bcsi']
+     UPGRADE_PATH: '1.3.7.1::2.1.1.1::2.2.1.1::2.3.1.1::2.3.1.2::latest:casma_main_debug_bcsi'],
+    [uPath: '1.3.7.x-2.1-2.2-2.4', DEPLOY_CONFIG: 'kl.cas-s400-a1-10', 
+     UPGRADE_PATH: '1.3.7.1::2.1.1.1::2.2.1.1::latest:casma_main_debug_bcsi']
 ].each { Map config ->
 
     job("$basePath/upgrade-${config.uPath}") {
@@ -19,12 +19,12 @@ folder(basePath) {
 
         parameters {
             stringParam('DEPLOY_CONFIG', "${config.DEPLOY_CONFIG}")
-            stringParam('RELEASE_VERSION', "2.3.5.1")
+            stringParam('RELEASE_VERSION', "2.4.1.1")
             stringParam('UPGRADE_PATH', "${config.UPGRADE_PATH}")
         }
 
         triggers {
-            cron('H H(1-3) * * *')
+            cron('H H(19-21) * * *')
         }
 
         customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
