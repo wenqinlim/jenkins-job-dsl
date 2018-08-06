@@ -6,11 +6,11 @@ folder(basePath) {
 
 [
     [uPath: 'direct', DEPLOY_CONFIG: 'kl.cas-s500-a1-01', 
-     UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:'], 
+     UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:casma_2_3_debug_bcsi'], 
     [uPath: 'incremental', DEPLOY_CONFIG: 'kl.cas-s400-a4-03', 
-     UPGRADE_PATH: '1.3.7.1::2.1.1.1::2.2.1.1:2.3.1.1::2.3.1.2::latest:'],
+     UPGRADE_PATH: '1.3.7.1::2.1.1.1::2.2.1.1:2.3.1.1::2.3.1.2::latest:casma_2_3_debug_bcsi'],
     [uPath: '1.3.7.x-2.1.1-2.3.5', DEPLOY_CONFIG: 'kl.cas-s400-a1-10', 
-     UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:']
+     UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:casma_2_3_debug_bcsi']
 ].each { Map config ->
 
     job("$basePath/upgrade-${config.uPath}") {
