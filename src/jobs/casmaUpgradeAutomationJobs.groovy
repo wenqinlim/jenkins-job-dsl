@@ -1,4 +1,4 @@
-String basePath = 'upgradeAutomation'
+String basePath = 'upgradeAutomationDevBranch'
 
 folder(basePath) {
     description 'This example shows how to include script resources from the workspace for CASMA upgrade automation.'
@@ -13,7 +13,7 @@ folder(basePath) {
      UPGRADE_PATH: '1.3.7.1::2.1.1.1::latest:casma_2_3_debug_bcsi']
 ].each { Map config ->
 
-    job("$basePath/upgrade-${config.uPath}") {
+    job("$basePath/upgrade-dev-${config.uPath}") {
 
         description "${config.uPath} upgrade job"
 
