@@ -16,4 +16,4 @@ docker run --rm \
   -e "UPGRADE_PATH=${UPGRADE_PATH}" \
   -e "DEPLOY_CONFIG=${DEPLOY_CONFIG}" \
   "bluecoat/project-${DEPLOY_CONFIG}" \
-  /git/tests/.jenkins/run.sh
+  /git/tests/.jenkins/mock.sh
