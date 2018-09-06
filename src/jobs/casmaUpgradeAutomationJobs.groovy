@@ -35,7 +35,7 @@ folder(basePath) {
         }
 
         triggers {
-            cron('H H(1-3) * * *')
+            cron("${config.SCHEDULE_TIME}")
         }
 
         customWorkspace('/home/wenqin1/Jenkins-Work-Directory/')
