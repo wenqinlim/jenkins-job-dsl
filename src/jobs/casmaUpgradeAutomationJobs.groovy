@@ -11,7 +11,7 @@ folder(basePath) {
      SCHEDULE_TIME: 'H H(5-7) * * *'], 
     [uPath: 'incremental', 
      DEPLOY_CONFIG: 'kl.cas-s400-a4-03', 
-     UPGRADE_PATH: '1.3.7.1::2.1.1.1_debug::2.2.1.1_debug:2.3.1.1_debug::2.3.1.2_debug::latest:casma_2_3_debug_bcsi', 
+     UPGRADE_PATH: '1.3.7.1::2.1.1.1_debug::2.2.1.1_debug::2.3.1.1_debug::2.3.1.2_debug::latest:casma_2_3_debug_bcsi', 
      SCHEDULE_TIME: 'H H(5-7) * * *'],
     [uPath: '1.3.7.x-2.1.1-2.3.5', 
      DEPLOY_CONFIG: 'kl.cas-s500-a1-01', 
