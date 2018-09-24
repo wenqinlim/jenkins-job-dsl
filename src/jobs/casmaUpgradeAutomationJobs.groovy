@@ -8,19 +8,23 @@ folder(basePath) {
     [uPath: 'direct', 
      DEPLOY_CONFIG: 'kl.cas-s500-a1-01', 
      UPGRADE_PATH: '1.3.7.1::2.1.1.1_debug::latest:casma_2_3_debug_bcsi', 
-     SCHEDULE_TIME: 'H H(5-7) * * *'], 
+     SCHEDULE_TIME: 'H H(5-7) * * *', 
+     PORT_FWD: '5908'], 
     [uPath: 'incremental', 
      DEPLOY_CONFIG: 'kl.cas-s400-a4-03', 
      UPGRADE_PATH: '1.3.7.1::2.1.1.1_debug::2.2.1.1_debug::2.3.1.1_debug::2.3.1.2_debug::latest:casma_2_3_debug_bcsi', 
-     SCHEDULE_TIME: 'H H(5-7) * * *'],
+     SCHEDULE_TIME: 'H H(5-7) * * *', 
+     PORT_FWD: '5907'],
     [uPath: '1.3.7.x-2.1.1-2.3.5', 
      DEPLOY_CONFIG: 'kl.cas-s500-a1-01', 
      UPGRADE_PATH: '1.3.7.1::2.1.1.1_debug::latest:casma_2_3_debug_bcsi', 
-     SCHEDULE_TIME: 'H H(1-3) * * *'], 
+     SCHEDULE_TIME: 'H H(1-3) * * *', 
+     PORT_FWD: '5906'], 
     [uPath: '1.3.7.x-2.1.1-2.2.1-2.3.5', 
      DEPLOY_CONFIG: 'kl.cas-s400-a4-03', 
      UPGRADE_PATH: '1.3.7.1::2.1.1.1_debug::2.2.1.1_debug::latest:casma_2_3_debug_bcsi', 
-     SCHEDULE_TIME: 'H H(1-3) * * *']
+     SCHEDULE_TIME: 'H H(1-3) * * *', 
+     PORT_FWD: '5905']
 ].each { Map config ->
 
     job("$basePath/upgrade-${config.uPath}") {
@@ -32,6 +36,7 @@ folder(basePath) {
             stringParam('RELEASE_VERSION', "2.3.5.1")
             stringParam('UPGRADE_PATH', "${config.UPGRADE_PATH}")
             stringParam('SCHEDULE_TIME', "${config.SCHEDULE_TIME}")
+            stringParam('PORT_FWD', "${config.PORT_FWD}")
         }
 
         triggers {
