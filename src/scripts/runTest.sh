@@ -9,11 +9,13 @@ docker rm project-${DEPLOY_CONFIG} || echo "Could not remove the container"
 docker build --rm=true -t "bluecoat/project-${DEPLOY_CONFIG}" ./.jenkins
 docker run --rm \
   --name "project-${DEPLOY_CONFIG}" \
+  -p ${PORT_FWD}:5908 \
   -v "$(pwd)/output":"/build/output" \
   -v "$(pwd)":"/git/tests" \
   -v "/var/lib/jenkins:/var/lib/jenkins":ro \
   -e "RELEASE_VERSION=${RELEASE_VERSION}" \
   -e "UPGRADE_PATH=${UPGRADE_PATH}" \
   -e "DEPLOY_CONFIG=${DEPLOY_CONFIG}" \
+  -e "sample_repo=${SAMPLE_REPO}" \
   "bluecoat/project-${DEPLOY_CONFIG}" \
   /git/tests/.jenkins/run-upgrade-suite.sh
