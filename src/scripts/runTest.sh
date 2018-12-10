@@ -16,5 +16,6 @@ docker run --rm \
   -e "RELEASE_VERSION=${RELEASE_VERSION}" \
   -e "UPGRADE_PATH=${UPGRADE_PATH}" \
   -e "DEPLOY_CONFIG=${DEPLOY_CONFIG}" \
+  -e "sample_repo=${SAMPLE_REPO}" \
   "bluecoat/project-${DEPLOY_CONFIG}" \
   /git/tests/.jenkins/run-upgrade-suite.sh
